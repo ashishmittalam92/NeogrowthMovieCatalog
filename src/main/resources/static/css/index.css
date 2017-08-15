@@ -1,0 +1,68 @@
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+[ng\:cloak],[ng-cloak],.ng-cloak{display:none !important}
+
+html {
+	height: 100%;
+}
+
+body {
+	min-height: 100%;
+	padding-top: 70px;
+	padding-bottom: 70px;
+	position: relative;
+	background-color: #CCCCCC;
+}
+
+.movie-dtl {
+	background-color: whitesmoke;
+	
+	-webkit-box-shadow: 3px 3px 5px 6px #afaaaa;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  	-moz-box-shadow:    3px 3px 5px 6px #afaaaa;  /* Firefox 3.5 - 3.6 */
+  	box-shadow:         3px 3px 5px 6px #afaaaa;  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+  	
+  	margin-bottom: 35px;
+    padding: 10px;
+}
+
+.search {
+	padding: 10px;
+    border: 1px solid grey;
+}
+
+.heading .search-box {
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+.not-found {
+	text-align: center;
+	font-size: 16px;
+}
+
+.top-rated {
+	margin-right: 10px;
+	margin-top: 10px;
+	font-size: 16px;
+	display: inline-block;
+}
+
+.top-rated:hover {
+	cursor: pointer;
+}
+
+.pages {
+	text-align: center;
+}
+
+.pages span:not(:last-child) {
+	margin-right: 10px;
+}
+
+.pages span:hover {
+	cursor: pointer;
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+		<link rel="stylesheet" th:href="@{/css/index.css}" href="../../css/add.css" />
+		<link rel="stylesheet" th:href="@{/css/header.css}" href="../../css/header.css" />
+		<link rel="stylesheet" th:href="@{/css/footer.css}" href="../../css/footer.css" />
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	</head>
+	<body ng-app="movieApp" ng-controller="movieAddCtrl">
+		<header th:replace="fragments/header :: header"></header>
+		
+		<div class="container">
+			<h2>Add Movie</h2>
+			<form name="movieForm" class="css-form" ng-submit="save(movieForm.$valid)" novalidate="novalidate">
+		    	<div class="form-group">
+		    		<label>Name:</label>
+		      		<input type="text" class="form-control" ng-model="movie.name" name="mName" required="required" />
+		    	</div>
+		    	<div ng-show="form.$submitted || form.mName.$touched">
+		      		<div ng-show="form.mName.$error.required">Tell us your name.</div>
+		    	</div>
+		
+				<div class="form-group">
+		    		<label>Release Year:</label>
+		      		<select class="form-control" ng-model="movie.releaseYear" name="mReleaseYear" required="required">
+		      			<option th:each="year : ${years}" th:value="${year}" th:text="${year}"></option>
+		      		</select>
+		    	</div>
+		    	
+		    	<div class="form-group">
+		    		<label>IMDB Rating:</label>
+		      		<input class="form-control" type="text" ng-model="movie.imdbRating" name="mRating" required="required" />
+				</div>
+		
+				<div class="form-group">
+					<label>Actor:</label>
+		      		<select class="form-control" ng-model="movie.actor" name="mActor" required="required">
+		      			<option th:each="actor : ${actors}" th:value="${actor.id}" th:text="${actor.name}"></option>
+		      		</select>
+		    	</div>
+		    	
+		    	<div class="form-group">
+		    		<label>Director:</label>
+		      		<select class="form-control" ng-model="movie.director" name="mDirector" required="required">
+		      			<option th:each="director : ${directors}" th:value="${director.id}" th:text="${director.name}"></option>
+		      		</select>
+		    	</div>
+		
+				<div class="form-group">
+					<label>Genre:</label>
+		      		<select class="form-control" ng-model="movie.genre" name="mGenre" required="required">
+		      			<option th:each="genre : ${genres}" th:value="${genre.id}" th:text="${genre.name}"></option>
+		      		</select>
+		    	</div>
+		
+				<div class="message">{{success}}</div>
+				
+		    	<button type="button" ng-click="reset(form)" class="btn btn-primary">Reset</button>
+		    	<button type="submit" class="btn btn-success">Save</button>
+		  	</form>		  	
+		</div>
+		
+		<footer th:replace="fragments/footer :: footer"></footer>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+		<script th:src="@{/js/app.js}" src="../../js/app.js"></script>
+		<script th:src="@{/js/controller/MovieAddController.js}" src="../../js/controller/MovieAddController.js"></script>
+	</body>
+</html>
